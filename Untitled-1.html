@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("toopro1.jpg");
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+.falling-heart {
+    position: fixed;
+    top: -10px; /* Start slightly above the screen */
+    color: red;
+    font-size: 20px; /* Default size */
+    user-select: none;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh); /* Move to bottom of screen */
+    }
+}
+</style>
+</head>
+<body>
+
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block w3-black">PLAYLIST</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#where" class="w3-button w3-block w3-black">WHERE</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header with image -->
+<script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("falling-heart");
+        heart.innerHTML = "❤️"; // Heart emoji
+    
+        // Random positioning and size
+        heart.style.left = Math.random() * 100 + "vw"; 
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s"; // 2-5 seconds
+        heart.style.fontSize = Math.random() * 20 + 10 + "px"; // 10px to 30px
+    
+        document.body.appendChild(heart);
+    
+        // Remove heart after it falls
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+    
+    // Generate hearts every 300ms
+    setInterval(createHeart, 300);
+    </script>
+
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag">loved you ever since I was 20</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white" style="font-size:90px">to<br>the love of my life</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white">Te amo mi amor</span>
+  </div>
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-grayscale w3-large">
+
+<!-- About Container -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Songs that reminds me of you</span></h5>
+    <!-- Spotify -->
+    <div style="text-align: center; margin-top: 20px;">
+        <p>Press dudubear!</p>
+        <a href="https://open.spotify.com/playlist/4yHNcvMvhUeF6rI7cPVdG9?si=c6ff02711ef64d6b&nd=1&dlsi=4170a619d29948bc" target="_blank" onclick="askMilkTea(event)">
+            <img src="dudu.jpg" alt="Play on Spotify" style="width: 100px; height: auto; cursor: pointer;">
+        </a>
+    </div> 
+    <br>
+    <p> </p>
+    <div class="w3-panel w3-leftbar w3-light-grey">
+      <p><i>"No matter how much or how often people hurt each other, loving someone is never a waste." -Nana Osaki</i></p>
+    </div>
+    <br>
+
+  </div>
+</div>
+
+
+<!-- Menu Container -->
+<div class="w3-container" id="menu">
+  <div class="w3-content" style="max-width:700px">
+ 
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">Baby boy's Special</span></h5>
+  
+    <div class="w3-row w3-center w3-card w3-padding">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
+        <div class="w3-col s6 tablink">Eat</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+        <div class="w3-col s6 tablink">Drink</div>
+      </a>
+    </div>
+
+    <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Pork Belly</h5>
+      <p class="w3-text-grey">grilled/ fried pork belly with white rice</p><br>
+    
+      <h5>Bubu's Favorite</h5>
+      <p class="w3-text-grey">Pork kare kare </p><br>
+    
+    </div>
+
+    <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Starbucks</h5>
+      <p class="w3-text-grey">Iced Shaken Espresso</p><br>
+    </div>  
+  </div>
+</div>
+
+<!-- Contact/Area Container -->
+<div class="w3-container" id="where" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">My hall of fame</span></h5>
+    <!-- Photo Grid -->
+<div class="w3-row" id="myGrid" style="margin-bottom:128px">
+    <div class="w3-third">
+      <img src="toopro2.jpg" style="width:100%">
+      <img src="toopro3.jpg" style="width:100%">
+      <img src="tp4.jpg" style="width:100%">
+      <img src="tp5.jpg" style="width:100%">
+      <img src="tp6.jpg" style="width:100%">
+      <img src="tp7.jpg" style="width:100%">
+    </div>
+  
+    <div class="w3-third">
+      <img src="tp8.jpg" style="width:100%">
+      <img src="tp9.jpg" style="width:100%">
+      <img src="tp10.jpg" style="width:100%">
+      <img src="tp11.jpg" style="width:100%">
+      <img src="tp12.jpg" style="width:100%">
+      <img src="tp13.jpg" style="width:100%">
+    </div>
+  
+    <div class="w3-third">
+      <img src="tp14.jpg" style="width:100%">
+      <img src="tp15.jpg" style="width:100%">
+      <img src="tp16.jpg" style="width:100%">
+      <img src="tp17.jpg" style="width:100%">
+      <img src="tp18.jpg" style="width:100%">
+      <img src="tp19.jpg" style="width:100%">
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>
